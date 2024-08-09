@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_utilities.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daspring <daspring@student.42heilbronn.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/01 15:18:44 by daspring          #+#    #+#             */
+/*   Updated: 2024/07/30 21:46:16 by daspring         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stddef.h>
+#include <unistd.h>
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
+
+int	power_of_ten(int pow)
+{
+	int	result;
+
+	if (pow == 0)
+		return (1);
+	result = 1;
+	while (pow-- > 0)
+		result *= 10;
+	return (result);
+}
+
+int	put_to_screen(char *digit, int *counter)
+{
+	(*counter)++;
+	return (write(1, digit, 1));
+}
